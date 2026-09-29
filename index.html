@@ -6,7 +6,6 @@
   <title>KIEN's DEBUT - Nhận iTunes Code</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Nền gradient tối chuyển từ đỏ rượu sẫm sang đen */
     body {
       background: radial-gradient(circle at top, #28060a 0%, #0d0204 100%);
     }
@@ -16,7 +15,7 @@
 
   <div class="max-w-sm w-full space-y-4 my-6">
 
-    <!-- KHỐI 1: BANNER, FORM NHẬP TÊN VÀ NÚT NHẬN CODE -->
+    <!-- KHỐI 1: BANNER, ĐỒNG HỒ ĐẾM NGƯỢC, FORM NHẬP TÊN VÀ NÚT NHẬN -->
     <div class="bg-[#140608] rounded-2xl p-5 border border-[#3b1218] shadow-2xl shadow-red-950/50">
       
       <!-- ẢNH BÌA BANNER -->
@@ -35,8 +34,33 @@
         <h2 class="text-lg font-bold tracking-wide text-gray-100">Nhận iTunes Code</h2>
       </div>
 
-      <!-- Đếm ngược thời gian -->
-      <p id="countdown" class="text-xs text-center text-red-400 mb-5 font-medium">Đang kiểm tra thời gian...</p>
+      <!-- ĐỒNG HỒ ĐẾM NGƯỢC -->
+      <div id="countdownBox" class="mb-5 bg-[#1c080b] border border-[#44171d] rounded-xl p-3 text-center">
+        <p class="text-xs text-red-400 font-semibold mb-2 uppercase tracking-wider">Hệ thống mở phát sau</p>
+        <div class="grid grid-cols-4 gap-2 text-center font-mono">
+          <div class="bg-[#240a0e] rounded-lg p-1.5 border border-[#4a181f]">
+            <span id="days" class="text-lg font-bold text-white block">00</span>
+            <span class="text-[10px] text-gray-400">NGÀY</span>
+          </div>
+          <div class="bg-[#240a0e] rounded-lg p-1.5 border border-[#4a181f]">
+            <span id="hours" class="text-lg font-bold text-white block">00</span>
+            <span class="text-[10px] text-gray-400">GIỜ</span>
+          </div>
+          <div class="bg-[#240a0e] rounded-lg p-1.5 border border-[#4a181f]">
+            <span id="minutes" class="text-lg font-bold text-white block">00</span>
+            <span class="text-[10px] text-gray-400">PHÚT</span>
+          </div>
+          <div class="bg-[#240a0e] rounded-lg p-1.5 border border-[#4a181f]">
+            <span id="seconds" class="text-lg font-bold text-red-400 block">00</span>
+            <span class="text-[10px] text-gray-400">GIÂY</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thông báo khi đã đến giờ -->
+      <p id="openedNotice" class="text-xs text-center text-green-400 font-medium mb-4 hidden">
+        🎉 Hệ thống đã mở! Nhập tên để nhận code ngay.
+      </p>
 
       <!-- Ô nhập tên -->
       <div class="space-y-1.5 mb-4 text-left">
@@ -69,14 +93,12 @@
         <span>CODE CỦA BẠN</span>
       </div>
 
-      <!-- Ô hiển thị mã quà tặng -->
       <div class="bg-[#1c080b] border border-[#44171d] rounded-xl py-3.5 px-4 text-center">
         <div id="codeDisplay" class="font-mono font-bold text-base tracking-widest text-red-100 select-all">
           ------ ------ ------
         </div>
       </div>
 
-      <!-- Nút Copy -->
       <button
         id="btnCopy"
         onclick="copyCode()"
@@ -92,22 +114,29 @@
   </div>
 
   <script>
-    // ================== CẤU HÌNH CỦA BẠN ==================
-    // 1. Dán link Google Apps Script vào giữa 2 dấu ngoặc kép:
+    // ================== CẤU HÌNH Ở ĐÂY ==================
+    // 1. Dán URL Apps Script của bạn vào đây:
     const API_URL = "DÁN_URL_GOOGLE_APPS_SCRIPT_CỦA_BẠN_VÀO_ĐÂY";
 
-    // 2. Chỉnh ngày giờ mở phát code: Date(Năm, Tháng - 1, Ngày, Giờ, Phút)
-    // Lưu ý: Tháng 9 tính là số 8
-    const OPEN_TIME = new Date(2026, 8, 24, 19, 15, 0).getTime();
-    // =====================================================
+    // 2. CHỈNH NGÀY GIỜ MỞ PHÁT CODE TẠI ĐÂY:
+    // Cú pháp: new Date(Năm, Tháng - 1, Ngày, Giờ, Phút, Giây)
+    // Ví dụ: Mở lúc 20:00 ngày 30 tháng 9 năm 2026 -> Tháng 9 điền số 8
+    const OPEN_TIME = new Date(2026, 8, 30, 20, 0, 0).getTime();
+    // ====================================================
 
     const btn = document.getElementById("btnClaim");
     const btnText = document.getElementById("btnText");
     const userNameInput = document.getElementById("userName");
-    const countdown = document.getElementById("countdown");
+    const countdownBox = document.getElementById("countdownBox");
+    const openedNotice = document.getElementById("openedNotice");
     const codeDisplay = document.getElementById("codeDisplay");
     const errorMsg = document.getElementById("errorMsg");
     const copyText = document.getElementById("copyText");
+
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
 
     function capNhatDongHo() {
       const now = Date.now();
@@ -115,11 +144,21 @@
 
       if (diff > 0) {
         btn.disabled = true;
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-        const hours = Math.floor(diff / (1000 * 60 * 60));
-        countdown.innerText = `Hệ thống mở phát sau: ${hours}h ${minutes}m nữa!`;
+        countdownBox.classList.remove("hidden");
+        openedNotice.classList.add("hidden");
+
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const m = Math.floor((diff / (1000 * 60)) % 60);
+        const s = Math.floor((diff / 1000) % 60);
+
+        daysEl.innerText = String(d).padStart(2, '0');
+        hoursEl.innerText = String(h).padStart(2, '0');
+        minutesEl.innerText = String(m).padStart(2, '0');
+        secondsEl.innerText = String(s).padStart(2, '0');
       } else {
-        countdown.innerText = "Hệ thống đã mở! Nhập tên để nhận code.";
+        countdownBox.classList.add("hidden");
+        openedNotice.classList.remove("hidden");
         if (!localStorage.getItem("da_nhan_code")) {
           btn.disabled = false;
         }
@@ -129,7 +168,6 @@
     setInterval(capNhatDongHo, 1000);
     capNhatDongHo();
 
-    // Giữ lại trạng thái nếu thiết bị này đã từng nhận code
     if (localStorage.getItem("da_nhan_code")) {
       codeDisplay.innerText = localStorage.getItem("da_nhan_code");
       userNameInput.value = localStorage.getItem("ten_nguoi_nhan") || "";
