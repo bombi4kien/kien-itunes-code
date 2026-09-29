@@ -3,43 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nhận iTunes Code</title>
+  <title>KIEN's DEBUT - Nhận iTunes Code</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Nền gradient tối chuyển từ đỏ rượu sẫm sang đen */
+    body {
+      background: radial-gradient(circle at top, #28060a 0%, #0d0204 100%);
+    }
+  </style>
 </head>
-<body class="bg-slate-900 text-white min-h-screen flex items-center justify-center p-4">
+<body class="text-white min-h-screen flex items-center justify-center p-4">
 
-  <div class="max-w-md w-full bg-slate-800 rounded-2xl p-6 shadow-xl text-center border border-slate-700">
-    <h1 class="text-xl font-bold mb-2">KIEN's DEBUT</h1>
-   <img src="banner.JPG" alt="Banner" class="rounded-xl w-full mb-4 object-cover" />
-    <p id="countdown" class="text-sm text-yellow-400 mb-6">Đang kiểm tra thời gian...</p>
+  <div class="max-w-sm w-full space-y-4 my-6">
 
-    <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 mb-6">
-      <p class="text-xs text-gray-400 mb-2 uppercase tracking-wide">Nhận Code Ngay</p>
-      <div id="codeDisplay" class="text-xl font-mono font-bold text-green-400 break-all select-all">
-        ------ ------ ------
+    <!-- KHỐI 1: BANNER, FORM NHẬP TÊN VÀ NÚT NHẬN CODE -->
+    <div class="bg-[#140608] rounded-2xl p-5 border border-[#3b1218] shadow-2xl shadow-red-950/50">
+      
+      <!-- ẢNH BÌA BANNER -->
+      <div class="overflow-hidden rounded-xl mb-4 border border-[#4a181f]">
+        <img 
+          src="banner.JPG" 
+          alt="KIEN's DEBUT" 
+          class="w-full h-auto object-cover block"
+          onerror="this.onerror=null; this.src='banner.png';"
+        />
       </div>
+
+      <!-- Tiêu đề sự kiện -->
+      <div class="flex items-center justify-center gap-2 mb-3">
+        <span class="text-xl text-red-500">🎁</span>
+        <h2 class="text-lg font-bold tracking-wide text-gray-100">Nhận iTunes Code</h2>
+      </div>
+
+      <!-- Đếm ngược thời gian -->
+      <p id="countdown" class="text-xs text-center text-red-400 mb-5 font-medium">Đang kiểm tra thời gian...</p>
+
+      <!-- Ô nhập tên -->
+      <div class="space-y-1.5 mb-4 text-left">
+        <label for="userName" class="text-xs text-gray-400 font-medium">Tên bạn/Tên Fandom</label>
+        <input
+          type="text"
+          id="userName"
+          placeholder="Tên bạn/Tên Fandom"
+          class="w-full bg-[#1c080b] border border-[#44171d] rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-red-500 transition"
+        />
+      </div>
+
+      <!-- Nút nhận code -->
+      <button
+        id="btnClaim"
+        onclick="nhanCode()"
+        class="w-full bg-red-600 hover:bg-red-500 active:scale-[0.98] disabled:bg-[#331116] disabled:text-neutral-500 disabled:cursor-not-allowed font-bold py-3.5 rounded-xl transition duration-200 flex items-center justify-center gap-2 text-sm shadow-lg shadow-red-900/40"
+      >
+        <span>🎁</span>
+        <span id="btnText">Nhận iTunes Code</span>
+      </button>
+
+      <p id="errorMsg" class="text-red-400 text-xs text-center mt-2.5 hidden"></p>
     </div>
 
-    <button id="btnClaim" onclick="nhanCode()" class="w-full bg-blue-600 hover:bg-blue-500 font-bold py-3 rounded-xl transition duration-200 disabled:bg-gray-600 disabled:cursor-not-allowed">
-      Nhận Code Ngay
-    </button>
-    <p id="errorMsg" class="text-red-400 text-xs mt-3 hidden"></p>
+    <!-- KHỐI 2: KHUNG HIỂN THỊ CODE VÀ NÚT COPY -->
+    <div class="bg-[#140608] rounded-2xl p-5 border border-[#3b1218] shadow-2xl shadow-red-950/50 space-y-3.5">
+      <div class="flex items-center gap-2 text-xs font-bold tracking-wider text-red-500">
+        <span>🎁</span>
+        <span>CODE CỦA BẠN</span>
+      </div>
+
+      <!-- Ô hiển thị mã quà tặng -->
+      <div class="bg-[#1c080b] border border-[#44171d] rounded-xl py-3.5 px-4 text-center">
+        <div id="codeDisplay" class="font-mono font-bold text-base tracking-widest text-red-100 select-all">
+          ------ ------ ------
+        </div>
+      </div>
+
+      <!-- Nút Copy -->
+      <button
+        id="btnCopy"
+        onclick="copyCode()"
+        class="w-full bg-[#240a0e] hover:bg-[#330f14] active:scale-[0.98] border border-[#4a181f] font-medium py-3 rounded-xl transition duration-200 flex items-center justify-center gap-2 text-xs text-neutral-200"
+      >
+        <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+        </svg>
+        <span id="copyText">Copy Code</span>
+      </button>
+    </div>
+
   </div>
 
   <script>
-    // --- CẤU HÌNH CỦA BẠN ---
-    // 1. Dán URL Apps Script lấy ở Bước 1 vào giữa 2 dấu ngoặc kép:
-    const API_URL = "https://script.google.com/macros/s/AKfycbx1szEqP_X_cZKOTQLsUkvKzCGJgS-T747vRB9Kh48Yl7MV8LAhNsea_r4oqugl8D4M5A/exec";
+    // ================== CẤU HÌNH CỦA BẠN ==================
+    // 1. Dán link Google Apps Script vào giữa 2 dấu ngoặc kép:
+    const API_URL = "DÁN_URL_GOOGLE_APPS_SCRIPT_CỦA_BẠN_VÀO_ĐÂY";
 
-    // 2. Chỉnh ngày giờ bắt đầu phát (Năm, Tháng - 1, Ngày, Giờ, Phút)
-    // Lưu ý: Tháng trong JS tính từ 0 đến 11 (Tháng 9 thì ghi số 8)
-    const OPEN_TIME = new Date(2026, 12, 19, 00, 00, 0).getTime();
-    // ------------------------
+    // 2. Chỉnh ngày giờ mở phát code: Date(Năm, Tháng - 1, Ngày, Giờ, Phút)
+    // Lưu ý: Tháng 9 tính là số 8
+    const OPEN_TIME = new Date(2026, 8, 24, 19, 15, 0).getTime();
+    // =====================================================
 
     const btn = document.getElementById("btnClaim");
+    const btnText = document.getElementById("btnText");
+    const userNameInput = document.getElementById("userName");
     const countdown = document.getElementById("countdown");
     const codeDisplay = document.getElementById("codeDisplay");
     const errorMsg = document.getElementById("errorMsg");
+    const copyText = document.getElementById("copyText");
 
     function capNhatDongHo() {
       const now = Date.now();
@@ -49,9 +117,9 @@
         btn.disabled = true;
         const minutes = Math.floor((diff / (1000 * 60)) % 60);
         const hours = Math.floor(diff / (1000 * 60 * 60));
-        countdown.innerText = `Hệ thống mở phát sau: ${hours} giờ ${minutes} phút nữa!`;
+        countdown.innerText = `Hệ thống mở phát sau: ${hours}h ${minutes}m nữa!`;
       } else {
-        countdown.innerText = "Hệ thống đã mở! Bấm để nhận mã.";
+        countdown.innerText = "Hệ thống đã mở! Nhập tên để nhận code.";
         if (!localStorage.getItem("da_nhan_code")) {
           btn.disabled = false;
         }
@@ -61,38 +129,76 @@
     setInterval(capNhatDongHo, 1000);
     capNhatDongHo();
 
-    // Kiểm tra xem máy này đã từng bấm nhận chưa
+    // Giữ lại trạng thái nếu thiết bị này đã từng nhận code
     if (localStorage.getItem("da_nhan_code")) {
       codeDisplay.innerText = localStorage.getItem("da_nhan_code");
+      userNameInput.value = localStorage.getItem("ten_nguoi_nhan") || "";
+      userNameInput.disabled = true;
       btn.disabled = true;
-      btn.innerText = "Bạn đã nhận mã rồi";
+      btnText.innerText = "Bạn đã nhận mã rồi";
     }
 
     async function nhanCode() {
+      const name = userNameInput.value.trim();
+      if (!name) {
+        errorMsg.innerText = "Vui lòng nhập Tên bạn hoặc Tên Fandom!";
+        errorMsg.classList.remove("hidden");
+        userNameInput.focus();
+        return;
+      }
+
       btn.disabled = true;
-      btn.innerText = "Đang xử lý...";
+      btnText.innerText = "Đang lấy code...";
       errorMsg.classList.add("hidden");
 
       try {
-        const res = await fetch(API_URL);
+        const res = await fetch(`${API_URL}?name=${encodeURIComponent(name)}`);
         const data = await res.json();
 
         if (data.code) {
           codeDisplay.innerText = data.code;
           localStorage.setItem("da_nhan_code", data.code);
-          btn.innerText = "Đã nhận thành công!";
+          localStorage.setItem("ten_nguoi_nhan", name);
+          userNameInput.disabled = true;
+          btnText.innerText = "Đã nhận thành công!";
         } else {
           codeDisplay.innerText = "HẾT MÃ!";
           errorMsg.innerText = "Toàn bộ số lượng mã quà tặng đã được phát hết.";
           errorMsg.classList.remove("hidden");
-          btn.innerText = "Đã hết code";
+          btnText.innerText = "Đã hết code";
         }
       } catch (err) {
         btn.disabled = false;
-        btn.innerText = "Thử lại";
+        btnText.innerText = "Thử lại";
         errorMsg.innerText = "Mạng yếu hoặc có lỗi xảy ra, hãy thử lại.";
         errorMsg.classList.remove("hidden");
       }
+    }
+
+    function copyCode() {
+      const code = codeDisplay.innerText.trim();
+      if (!code || code === "------ ------ ------" || code === "HẾT MÃ!") {
+        alert("Chưa có mã để sao chép!");
+        return;
+      }
+
+      navigator.clipboard.writeText(code).then(() => {
+        copyText.innerText = "Đã Copy!";
+        setTimeout(() => {
+          copyText.innerText = "Copy Code";
+        }, 2000);
+      }).catch(() => {
+        const temp = document.createElement("textarea");
+        temp.value = code;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand("copy");
+        document.body.removeChild(temp);
+        copyText.innerText = "Đã Copy!";
+        setTimeout(() => {
+          copyText.innerText = "Copy Code";
+        }, 2000);
+      });
     }
   </script>
 </body>
