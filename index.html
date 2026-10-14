@@ -3,184 +3,220 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KIEN's DEBUT - Nhận iTunes Code</title>
+  <title>KIEN Support Hub - Nhận iTunes Code</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    /* Nền màu bạc ánh kim tối giản */
     body {
-      background: radial-gradient(circle at top, #28060a 0%, #0d0204 100%);
+      background: linear-gradient(180deg, #f1f3f5 0%, #e2e6ea 50%, #d8dde2 100%);
+      color: #111827;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
   </style>
 </head>
-<body class="text-white min-h-screen flex items-center justify-center p-4">
+<body class="min-h-screen flex items-center justify-center p-4">
 
-  <div class="max-w-sm w-full space-y-4 my-6">
+  <div class="max-w-md w-full space-y-5 my-6">
 
-    <!-- KHỐI 1: BANNER, ĐỒNG HỒ ĐẾM NGƯỢC, FORM NHẬP TÊN VÀ NÚT NHẬN -->
-    <div class="bg-[#140608] rounded-2xl p-5 border border-[#3b1218] shadow-2xl shadow-red-950/50">
+    <!-- KHỐI CHÍNH: NỀN BẠC, VIỀN KIM LOẠI -->
+    <div class="bg-white/80 backdrop-blur-md rounded-3xl p-5 md:p-6 border border-gray-300 shadow-xl shadow-gray-400/20 space-y-5">
       
-      <!-- ẢNH BÌA BANNER -->
-      <div class="overflow-hidden rounded-xl mb-4 border border-[#4a181f]">
+      <!-- 1. ẢNH BÌA: ddcdcle.JPG -->
+      <div class="overflow-hidden rounded-2xl border border-gray-300 shadow-sm">
         <img 
-          src="banner.JPG" 
-          alt="KIEN's DEBUT" 
+          src="ddcdcle.JPG" 
+          alt="DDCDCLE - KIEN" 
           class="w-full h-auto object-cover block"
-          onerror="this.onerror=null; this.src='banner.png';"
+          onerror="this.onerror=null; this.src='ddcdcle.jpg';"
         />
       </div>
 
-      <!-- Tiêu đề sự kiện -->
-      <div class="flex items-center justify-center gap-2 mb-3">
-        <span class="text-xl text-red-500">🎁</span>
-        <h2 class="text-lg font-bold tracking-wide text-gray-100">Nhận iTunes Code Miễn Phí</h2>
+      <!-- CHÚ THÍCH DƯỚI ẢNH BÌA -->
+      <div class="p-3.5 bg-gray-100 rounded-xl border border-gray-200 text-xs leading-relaxed text-gray-700 italic">
+        Sử dụng mã iTunes khi không có điều kiện mua nhạc. Khuyến khích mua nhạc trước, sau đó gửi mã cho bạn bè, người thân để đẩy mass buy cho KIEN, giúp đưa các bài hát lên top #1 iTunes Việt Nam.
       </div>
 
-      <!-- ĐỒNG HỒ ĐẾM NGƯỢC -->
-      <div id="countdownBox" class="mb-5 bg-[#1c080b] border border-[#44171d] rounded-xl p-3 text-center">
-        <p class="text-xs text-red-400 font-semibold mb-2 uppercase tracking-wider">Hệ thống mở phát sau</p>
-        <div class="grid grid-cols-4 gap-2 text-center font-mono">
-          <div class="bg-[#240a0e] rounded-lg p-1.5 border border-[#4a181f]">
-            <span id="days" class="text-lg font-bold text-white block">00</span>
-            <span class="text-[10px] text-gray-400">NGÀY</span>
-          </div>
-          <div class="bg-[#240a0e] rounded-lg p-1.5 border border-[#4a181f]">
-            <span id="hours" class="text-lg font-bold text-white block">00</span>
-            <span class="text-[10px] text-gray-400">GIỜ</span>
-          </div>
-          <div class="bg-[#240a0e] rounded-lg p-1.5 border border-[#4a181f]">
-            <span id="minutes" class="text-lg font-bold text-white block">00</span>
-            <span class="text-[10px] text-gray-400">PHÚT</span>
-          </div>
-          <div class="bg-[#240a0e] rounded-lg p-1.5 border border-[#4a181f]">
-            <span id="seconds" class="text-lg font-bold text-red-400 block">00</span>
-            <span class="text-[10px] text-gray-400">GIÂY</span>
-          </div>
+      <!-- 2. HƯỚNG DẪN CHUNG -->
+      <div class="space-y-2 text-left">
+        <h2 class="text-sm font-bold text-gray-900 uppercase tracking-wide flex items-center gap-1.5">
+          <span>📌</span> 1. Hướng dẫn chung
+        </h2>
+        <ul class="text-xs text-gray-700 space-y-1.5 list-disc list-inside leading-relaxed bg-gray-50 p-3.5 rounded-xl border border-gray-200">
+          <li>Quy đổi mã trong khung giờ hướng dẫn để tối ưu việc đưa bài hát vào Top.</li>
+          <li>Mỗi tài khoản iCloud chỉ sử dụng duy nhất 1 code. <b>KHÔNG</b> bấm nhiều lần khiến hệ thống ghi nhận đã sử dụng mã, gây lãng phí mã mà không được sử dụng.</li>
+        </ul>
+      </div>
+
+      <!-- CÁCH DÙNG -->
+      <div class="space-y-2 text-left">
+        <h3 class="text-xs font-bold text-gray-900 uppercase tracking-wide flex items-center gap-1.5">
+          <span>💡</span> CÁCH DÙNG:
+        </h3>
+        <div class="text-xs text-gray-700 space-y-1.5 bg-gray-50 p-3.5 rounded-xl border border-gray-200 leading-relaxed">
+          <p>• Bấm vào từng bài hát để lấy mã iTunes miễn phí.</p>
+          <p>• Vào app <b>iTunes Store</b>, kéo xuống cuối trang, bấm <b>"Quy đổi"</b> - <b>"Nhập mã thủ công"</b> - Dán mã và bấm Quy đổi là hoàn thành.</p>
         </div>
       </div>
 
-      <!-- Thông báo khi đã đến giờ -->
-      <p id="openedNotice" class="text-xs text-center text-green-400 font-medium mb-4 hidden">
-        🎉 Hệ thống đã mở! Nhập tên để nhận code ngay.
-      </p>
+      <!-- 3. CÁC BÀI HÁT (DỰ ÁN) -->
+      <div class="space-y-3 text-left pt-2 border-t border-gray-200">
+        <h2 class="text-sm font-bold text-gray-900 uppercase tracking-wide flex items-center gap-1.5">
+          <span>🎵</span> 2. Các bài hát
+        </h2>
 
-      <!-- Ô nhập tên -->
-<div class="space-y-1.5 mb-4">
-  <label for="userName" class="block text-center text-xs text-gray-400 font-medium">
-    Người nhận mã
-    <br>
-    Vui lòng chỉ nhận 1 mã/1 tài khoản
-  </label>
-        <input
-          type="text"
-          id="userName"
-          placeholder="Tên bạn/Tên Fandom"
-          class="w-full bg-[#1c080b] border border-[#44171d] rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-red-500 transition"
-        />
+        <!-- Nút bấm dự án: DDCDCLE -->
+        <button 
+          onclick="openModal()" 
+          class="w-full bg-gradient-to-r from-gray-900 to-gray-800 hover:from-black hover:to-gray-900 text-white font-bold py-3.5 px-4 rounded-2xl transition duration-200 shadow-md flex items-center justify-between group active:scale-[0.99]"
+        >
+          <div class="flex items-center gap-2.5">
+            <span class="text-lg">💿</span>
+            <span class="text-sm tracking-wider font-semibold">DDCDCLE</span>
+          </div>
+          <span class="text-xs bg-white/20 text-gray-200 px-3 py-1 rounded-full group-hover:bg-white/30 transition">
+            Nhận mã &rarr;
+          </span>
+        </button>
       </div>
 
-      <!-- Nút nhận code -->
-      <button
-        id="btnClaim"
-        onclick="nhanCode()"
-        class="w-full bg-red-600 hover:bg-red-500 active:scale-[0.98] disabled:bg-[#331116] disabled:text-neutral-500 disabled:cursor-not-allowed font-bold py-3.5 rounded-xl transition duration-200 flex items-center justify-center gap-2 text-sm shadow-lg shadow-red-900/40"
-      >
-        <span>🎁</span>
-        <span id="btnText">Nhận iTunes Code</span>
-      </button>
-
-      <p id="errorMsg" class="text-red-400 text-xs text-center mt-2.5 hidden"></p>
-    </div>
-
-    <!-- KHỐI 2: KHUNG HIỂN THỊ CODE VÀ NÚT COPY -->
-    <div class="bg-[#140608] rounded-2xl p-5 border border-[#3b1218] shadow-2xl shadow-red-950/50 space-y-3.5">
-      <div class="flex items-center gap-2 text-xs font-bold tracking-wider text-red-500">
-        <span>🎁</span>
-        <span>CODE CỦA BẠN</span>
-      </div>
-
-      <div class="bg-[#1c080b] border border-[#44171d] rounded-xl py-3.5 px-4 text-center">
-        <div id="codeDisplay" class="font-mono font-bold text-base tracking-widest text-red-100 select-all">
-          ------ ------ ------
-        </div>
-      </div>
-
-      <button
-        id="btnCopy"
-        onclick="copyCode()"
-        class="w-full bg-[#240a0e] hover:bg-[#330f14] active:scale-[0.98] border border-[#4a181f] font-medium py-3 rounded-xl transition duration-200 flex items-center justify-center gap-2 text-xs text-neutral-200"
-      >
-        <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-        </svg>
-        <span id="copyText">Copy Code</span>
-      </button>
     </div>
 
   </div>
 
+  <!-- ================= POPUP MODAL NHẬN MÃ CHO DDCDCLE ================= -->
+  <div id="codeModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-5 border border-gray-300 shadow-2xl space-y-4 relative animate-in fade-in zoom-in duration-150">
+      
+      <!-- Nút đóng popup (X) -->
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-lg w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-100 transition">
+        ✕
+      </button>
+
+      <!-- Tiêu đề Popup -->
+      <div class="text-center pr-6">
+        <div class="flex items-center justify-center gap-1.5 text-base font-bold text-gray-900">
+          <span>🎁</span>
+          <span>Dự án: DDCDCLE</span>
+        </div>
+        <p class="text-[11px] text-gray-500 mt-0.5">Nhận mã iTunes quy đổi bài hát</p>
+      </div>
+
+      <!-- Ô NHẬP TÊN (NGƯỜI NHẬN MÃ) -->
+      <div class="space-y-1 text-left">
+        <label for="userName" class="text-xs font-semibold text-gray-700">Người nhận mã / Tên Fandom</label>
+        <input
+          type="text"
+          id="userName"
+          placeholder="Nhập tên bạn hoặc tên Fandom"
+          class="w-full bg-gray-50 border border-gray-300 rounded-xl px-3.5 py-2.5 text-xs text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-800 transition"
+        />
+      </div>
+
+      <!-- NÚT LẤY MÃ -->
+      <button
+        id="btnClaim"
+        onclick="xacNhanLayMa()"
+        class="w-full bg-gray-900 hover:bg-black text-white font-semibold py-3 rounded-xl transition duration-150 text-xs shadow-md disabled:bg-gray-400"
+      >
+        <span id="btnText">Lấy mã iTunes</span>
+      </button>
+
+      <p id="errorMsg" class="text-red-500 text-[11px] text-center hidden font-medium"></p>
+
+      <!-- KHUNG HIỂN THỊ: CODE CỦA BẠN -->
+      <div class="bg-gray-100 rounded-2xl p-4 border border-gray-200 space-y-2.5">
+        <div class="flex items-center justify-between">
+          <span class="text-[11px] font-bold tracking-wider text-gray-600">CODE CỦA BẠN</span>
+          <span id="claimCountBadge" class="text-[10px] text-gray-500">Chưa lấy mã</span>
+        </div>
+
+        <div class="bg-white border border-gray-300 rounded-xl py-3 px-3 text-center">
+          <div id="codeDisplay" class="font-mono font-bold text-sm tracking-wider text-gray-900 select-all break-all">
+            ------ ------ ------
+          </div>
+        </div>
+
+        <!-- Nút Copy Code -->
+        <button
+          id="btnCopy"
+          onclick="copyCode()"
+          class="w-full bg-white hover:bg-gray-50 border border-gray-300 font-semibold py-2.5 rounded-xl transition duration-150 flex items-center justify-center gap-1.5 text-xs text-gray-800 shadow-sm"
+        >
+          <svg class="w-3.5 h-3.5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          </svg>
+          <span id="copyText">Copy Code</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= POPUP HỎI XÁC NHẬN LẤY THÊM MÃ ================= -->
+  <div id="confirmModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[60] flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl max-w-xs w-full p-5 border border-gray-300 shadow-2xl text-center space-y-3.5 animate-in fade-in zoom-in duration-150">
+      <div class="text-2xl">⚠️</div>
+      <p class="text-xs text-gray-800 leading-relaxed font-medium">
+        Bạn đã lấy mã trước đó, bạn có chắc chắn lấy thêm mã không?
+      </p>
+      <div class="grid grid-cols-2 gap-2 pt-1">
+        <button 
+          onclick="dongYLayThem()" 
+          class="bg-gray-900 hover:bg-black text-white text-xs font-semibold py-2.5 rounded-xl transition"
+        >
+          Có
+        </button>
+        <button 
+          onclick="dongXacNhan()" 
+          class="bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold py-2.5 rounded-xl transition border border-gray-300"
+        >
+          Không
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // ================== CẤU HÌNH Ở ĐÂY ==================
-    // 1. Dán URL Apps Script của bạn vào đây:
-    const API_URL = "DÁN_URL_GOOGLE_APPS_SCRIPT_CỦA_BẠN_VÀO_ĐÂY";
+    // ==========================================
+    // DÁN LINK GOOGLE APPS SCRIPT CỦA DỰ ÁN DDCDCLE VÀO ĐÂY:
+    // ==========================================
+    const API_URL = "DÁN_LINK_APPS_SCRIPT_CỦA_DỰ_ÁN_DDCDCLE_VÀO_ĐÂY";
+    // ==========================================
 
-    // 2. CHỈNH NGÀY GIỜ MỞ PHÁT CODE TẠI ĐÂY:
-    // Cú pháp: new Date(Năm, Tháng - 1, Ngày, Giờ, Phút, Giây)
-    // Ví dụ: Mở lúc 20:00 ngày 30 tháng 9 năm 2026 -> Tháng 9 điền số 8
-    const OPEN_TIME = new Date(2026, 11, 19, 0, 0, 0).getTime();
-    // ====================================================
-
-    const btn = document.getElementById("btnClaim");
-    const btnText = document.getElementById("btnText");
+    const codeModal = document.getElementById("codeModal");
+    const confirmModal = document.getElementById("confirmModal");
     const userNameInput = document.getElementById("userName");
-    const countdownBox = document.getElementById("countdownBox");
-    const openedNotice = document.getElementById("openedNotice");
     const codeDisplay = document.getElementById("codeDisplay");
+    const claimCountBadge = document.getElementById("claimCountBadge");
+    const btnClaim = document.getElementById("btnClaim");
+    const btnText = document.getElementById("btnText");
     const errorMsg = document.getElementById("errorMsg");
     const copyText = document.getElementById("copyText");
 
-    const daysEl = document.getElementById("days");
-    const hoursEl = document.getElementById("hours");
-    const minutesEl = document.getElementById("minutes");
-    const secondsEl = document.getElementById("seconds");
+    // Khởi tạo số lần đã lấy mã từ bộ nhớ
+    let soLanDaLay = parseInt(localStorage.getItem("so_lan_lay_ddcdcle") || "0", 10);
+    const maGanNhat = localStorage.getItem("ma_ddcdcle_gan_nhat");
+    const tenGanNhat = localStorage.getItem("ten_nguoi_nhan_ddcdcle");
 
-    function capNhatDongHo() {
-      const now = Date.now();
-      const diff = OPEN_TIME - now;
-
-      if (diff > 0) {
-        btn.disabled = true;
-        countdownBox.classList.remove("hidden");
-        openedNotice.classList.add("hidden");
-
-        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const m = Math.floor((diff / (1000 * 60)) % 60);
-        const s = Math.floor((diff / 1000) % 60);
-
-        daysEl.innerText = String(d).padStart(2, '0');
-        hoursEl.innerText = String(h).padStart(2, '0');
-        minutesEl.innerText = String(m).padStart(2, '0');
-        secondsEl.innerText = String(s).padStart(2, '0');
-      } else {
-        countdownBox.classList.add("hidden");
-        openedNotice.classList.remove("hidden");
-        if (!localStorage.getItem("da_nhan_code")) {
-          btn.disabled = false;
-        }
-      }
+    if (tenGanNhat) {
+      userNameInput.value = tenGanNhat;
+    }
+    if (maGanNhat) {
+      codeDisplay.innerText = maGanNhat;
+      claimCountBadge.innerText = `Đã lấy ${soLanDaLay} mã`;
     }
 
-    setInterval(capNhatDongHo, 1000);
-    capNhatDongHo();
-
-    if (localStorage.getItem("da_nhan_code")) {
-      codeDisplay.innerText = localStorage.getItem("da_nhan_code");
-      userNameInput.value = localStorage.getItem("ten_nguoi_nhan") || "";
-      userNameInput.disabled = true;
-      btn.disabled = true;
-      btnText.innerText = "Bạn đã nhận mã rồi";
+    function openModal() {
+      codeModal.classList.remove("hidden");
     }
 
-    async function nhanCode() {
+    function closeModal() {
+      codeModal.classList.add("hidden");
+      errorMsg.classList.add("hidden");
+    }
+
+    // Kiểm tra xem đây là lần lấy đầu hay các lần tiếp theo
+    function xacNhanLayMa() {
       const name = userNameInput.value.trim();
       if (!name) {
         errorMsg.innerText = "Vui lòng nhập Tên bạn hoặc Tên Fandom!";
@@ -188,9 +224,29 @@
         userNameInput.focus();
         return;
       }
+      errorMsg.classList.add("hidden");
 
-      btn.disabled = true;
-      btnText.innerText = "Đang lấy code...";
+      if (soLanDaLay >= 1) {
+        // Hiện thông báo hỏi xác nhận từ lần thứ 2 trở đi
+        confirmModal.classList.remove("hidden");
+      } else {
+        thucHienGoiApiLayMa(name);
+      }
+    }
+
+    function dongYLayThem() {
+      confirmModal.classList.add("hidden");
+      const name = userNameInput.value.trim();
+      thucHienGoiApiLayMa(name);
+    }
+
+    function dongXacNhan() {
+      confirmModal.classList.add("hidden");
+    }
+
+    async function thucHienGoiApiLayMa(name) {
+      btnClaim.disabled = true;
+      btnText.innerText = "Đang lấy mã...";
       errorMsg.classList.add("hidden");
 
       try {
@@ -198,22 +254,26 @@
         const data = await res.json();
 
         if (data.code) {
+          soLanDaLay += 1;
+          localStorage.setItem("so_lan_lay_ddcdcle", soLanDaLay);
+          localStorage.setItem("ma_ddcdcle_gan_nhat", data.code);
+          localStorage.setItem("ten_nguoi_nhan_ddcdcle", name);
+
           codeDisplay.innerText = data.code;
-          localStorage.setItem("da_nhan_code", data.code);
-          localStorage.setItem("ten_nguoi_nhan", name);
-          userNameInput.disabled = true;
-          btnText.innerText = "Đã nhận thành công!";
+          claimCountBadge.innerText = `Đã lấy ${soLanDaLay} mã`;
+          btnText.innerText = "Lấy mã khác";
         } else {
           codeDisplay.innerText = "HẾT MÃ!";
-          errorMsg.innerText = "Toàn bộ số lượng mã quà tặng đã được phát hết.";
+          errorMsg.innerText = "Toàn bộ mã quà tặng của dự án đã được phát hết.";
           errorMsg.classList.remove("hidden");
-          btnText.innerText = "Đã hết code";
+          btnText.innerText = "Đã hết mã";
         }
       } catch (err) {
-        btn.disabled = false;
-        btnText.innerText = "Thử lại";
-        errorMsg.innerText = "Mạng yếu hoặc có lỗi xảy ra, hãy thử lại.";
+        errorMsg.innerText = "Lỗi kết nối hoặc mạng yếu, vui lòng thử lại.";
         errorMsg.classList.remove("hidden");
+        btnText.innerText = "Thử lại";
+      } finally {
+        btnClaim.disabled = false;
       }
     }
 
