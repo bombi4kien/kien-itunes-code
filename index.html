@@ -219,14 +219,20 @@
         </div>
       </div>
 
-      <!-- Thẻ bài hát DDCDCLE -->
+      <!-- Thẻ bài hát DDCDCLE (ĐÃ THAY BẰNG ẢNH NHỎ ddcdcle.jpg) -->
       <div 
         onclick="openModal()" 
         class="silver-card rounded-2xl p-3.5 hover:shadow-xl transition-all duration-200 cursor-pointer flex items-center justify-between gap-3 active:scale-[0.99]"
       >
         <div class="flex items-center gap-3">
-          <div class="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center font-black text-sm tracking-wider shadow-md flex-shrink-0">
-            DD
+          <!-- Ảnh thumbnail nhỏ ddcdcle.jpg thay cho chữ DD -->
+          <div class="w-12 h-12 rounded-xl overflow-hidden border border-gray-300/80 shadow-md flex-shrink-0 bg-gray-200">
+            <img 
+              src="ddcdcle.jpg" 
+              alt="DDCDCLE" 
+              class="w-full h-full object-cover block"
+              onerror="this.onerror=null; this.src='ddcdcle.JPG';"
+            />
           </div>
           <div>
             <div class="flex items-center gap-2">
@@ -390,10 +396,7 @@
   <script>
     const API_URL = "https://script.google.com/macros/s/AKfycbx1szEqP_X_cZKOTQLsUkvKzCGJgS-T747vRB9Kh48Yl7MV8LAhNsea_r4oqugl8D4M5A/exec";
 
-    // ==========================================
-    // CÀI ĐẶT THỜI GIAN MỞ: 21h30 ngày 15/10/2026
-    // Tháng 10 ghi số 9
-    // ==========================================
+    // Cài đặt thời gian mở: 21h30 ngày 15/10/2026 (Tháng 10 điền số 9)
     const OPEN_TIME = new Date(2026, 9, 15, 21, 30, 0).getTime();
 
     const codeModal = document.getElementById("codeModal");
@@ -423,7 +426,6 @@
 
     let isSystemOpened = false;
 
-    // Hàm cập nhật đồng hồ đếm ngược và trạng thái mở hệ thống
     function kiemTraVaDemNguoc() {
       const now = Date.now();
       const diff = OPEN_TIME - now;
