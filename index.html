@@ -3,34 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CHIẾN DỊCH ITUNES KIEN</title>
+  <title>CHIẾN DỊCH MASS REDEEM ITUNES KIEN</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
   <style>
+    /* Nền màu xám bạc kim loại (Metallic Silver) đậm chất */
     body {
-      background-color: #e9edf2;
+      background-color: #9fa8b3;
       background-image: 
-        radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.9) 0%, transparent 25%),
-        radial-gradient(circle at 85% 40%, rgba(255, 255, 255, 0.8) 0%, transparent 20%),
-        radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.95) 0%, transparent 30%),
-        radial-gradient(circle at 30% 65%, rgba(200, 210, 225, 0.4) 0%, transparent 35%),
-        linear-gradient(180deg, #f2f5f9 0%, #e1e7ee 100%);
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.45) 0%, transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.35) 0%, transparent 35%),
+        radial-gradient(circle at 50% 85%, rgba(255, 255, 255, 0.4) 0%, transparent 45%),
+        linear-gradient(180deg, #bcc5ce 0%, #9fa8b3 50%, #87929e 100%);
       background-attachment: fixed;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
-      color: #111827;
+      color: #0f172a;
     }
 
+    /* Hiệu ứng CHỮ ĐEN PHÁT SÁNG HÀO QUANG TRẮNG nhấp nháy cho tiêu đề chính */
+    .title-black-white-glow {
+      font-family: 'Montserrat', sans-serif;
+      color: #050505;
+      animation: whiteGlowPulse 2.5s infinite ease-in-out;
+    }
+
+    @keyframes whiteGlowPulse {
+      0%, 100% {
+        text-shadow: 
+          0 0 2px #ffffff,
+          0 0 6px #ffffff,
+          0 0 12px rgba(255, 255, 255, 0.85),
+          0 0 18px rgba(255, 255, 255, 0.6);
+      }
+      50% {
+        text-shadow: 
+          0 0 3px #ffffff,
+          0 0 10px #ffffff,
+          0 0 20px rgba(255, 255, 255, 1),
+          0 0 28px rgba(255, 255, 255, 0.9),
+          0 0 36px rgba(255, 255, 255, 0.7);
+      }
+    }
+
+    /* Chữ đen phát sáng trắng tĩnh cho các mục 1, 2 */
     .glow-title {
-      color: #0a0a0c;
+      color: #000000;
       text-shadow: 
-        0 0 1px rgba(0, 0, 0, 0.8),
-        0 0 8px rgba(0, 0, 0, 0.35),
-        0 0 16px rgba(100, 116, 139, 0.45);
+        0 0 2px #ffffff,
+        0 0 6px rgba(255, 255, 255, 0.95),
+        0 0 14px rgba(255, 255, 255, 0.8),
+        0 0 22px rgba(255, 255, 255, 0.6);
     }
 
-    .shimmer-card {
-      position: relative;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(10px);
+    /* Khung card màu xám bạc sang trọng có bóng kim loại */
+    .silver-card {
+      background: rgba(226, 232, 240, 0.88);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      box-shadow: 
+        0 8px 24px -4px rgba(51, 65, 85, 0.25),
+        inset 0 1px 1px rgba(255, 255, 255, 0.8);
+    }
+
+    /* Hiệu ứng nhấp nhô nhẹ của hạt dẻ */
+    .acorn-bounce {
+      animation: gentleBounce 2s infinite ease-in-out;
+    }
+
+    @keyframes gentleBounce {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-2px) scale(1.08);
+      }
     }
   </style>
 </head>
@@ -39,74 +87,82 @@
   <div class="max-w-md w-full space-y-4 my-4">
 
     <!-- KHỐI HEADER TRÊN ẢNH: BADGE TRẠNG THÁI -->
-    <div class="shimmer-card rounded-3xl p-4 sm:p-5 border border-white/80 shadow-lg shadow-slate-300/40 space-y-4">
+    <div class="silver-card rounded-3xl p-4 sm:p-5 space-y-4">
       
-      <div class="flex items-center justify-between gap-2 border-b border-gray-100 pb-3">
+      <!-- Thanh Badge: Icon hạt dẻ + Tiêu đề phát sáng trắng + Top 1 Chart -->
+      <div class="flex items-center justify-between gap-2 border-b border-gray-300/70 pb-3">
         <div class="flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span class="text-xs sm:text-sm font-bold tracking-tight text-gray-900 uppercase">
-            CHIẾN DỊCH ITUNES KIEN
+          <!-- Icon hạt dẻ trước tiêu đề -->
+          <img 
+            src="hatde.png" 
+            alt="Hạt dẻ" 
+            class="w-5 h-5 sm:w-6 sm:h-6 object-contain acorn-bounce flex-shrink-0"
+            onerror="this.onerror=null; this.src='hatde.png.PNG';"
+          />
+          <span class="text-xs sm:text-sm font-black tracking-wide uppercase title-black-white-glow">
+            CHIẾN DỊCH MASS REDEEM ITUNES KIEN
           </span>
         </div>
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-gray-200 bg-white shadow-sm text-xs font-semibold text-gray-800">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-gray-300 bg-white/90 shadow-sm text-[11px] sm:text-xs font-bold text-gray-900 flex-shrink-0">
           <span>🎵</span>
-          <span>Top 1 Chart</span>
+          <span>Top 1</span>
         </div>
       </div>
 
       <!-- ẢNH BÌA: ddcdcle.JPG -->
-      <div class="overflow-hidden rounded-2xl border border-gray-200 shadow-sm bg-gray-100">
+      <div class="overflow-hidden rounded-2xl border border-gray-300 shadow-sm bg-gray-200">
         <img 
           src="ddcdcle.JPG" 
-          alt="CHIẾN DỊCH ITUNES KIEN" 
+          alt="CHIẾN DỊCH MASS REDEEM ITUNES KIEN" 
           class="w-full h-auto object-cover block"
           onerror="this.onerror=null; this.src='ddcdcle.jpg';"
         />
       </div>
 
       <!-- Lời dẫn dưới ảnh bìa -->
-      <p class="text-xs sm:text-[13px] leading-relaxed text-gray-700 px-1">
+      <p class="text-xs sm:text-[13px] leading-relaxed text-gray-800 px-1 font-medium">
         Sử dụng mã iTunes khi không có điều kiện mua nhạc. Khuyến khích mua nhạc trước, sau đó gửi mã cho bạn bè, người thân để đẩy mass buy cho <b>KIEN</b>, giúp đưa các bài hát lên top #1 iTunes Việt Nam.
       </p>
 
     </div>
 
     <!-- KHỐI 1: HƯỚNG DẪN CHUNG -->
-    <div class="shimmer-card rounded-3xl p-5 border border-white/80 shadow-lg shadow-slate-300/40 space-y-4">
+    <div class="silver-card rounded-3xl p-5 space-y-4">
       
+      <!-- Tiêu đề 1: Chữ đen phát sáng viền trắng -->
       <div class="flex items-center gap-2.5">
-        <span class="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center font-bold text-xs shadow-sm">
+        <span class="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center font-bold text-xs shadow-md">
           1
         </span>
-        <h2 class="text-base font-extrabold tracking-wide uppercase glow-title">
+        <h2 class="text-base font-black tracking-wide uppercase glow-title">
           HƯỚNG DẪN CHUNG
         </h2>
       </div>
 
-      <div class="flex items-start gap-2.5 text-xs text-gray-700 leading-relaxed px-1">
+      <div class="flex items-start gap-2.5 text-xs text-gray-800 leading-relaxed px-1 font-medium">
         <span class="text-sm mt-[-1px]">🕒</span>
         <p>Quy đổi mã trong khung giờ hướng dẫn để tối ưu việc đưa bài hát vào Top.</p>
       </div>
 
-      <div class="p-3.5 rounded-2xl bg-rose-50 border border-rose-200/80 text-rose-700 text-xs leading-relaxed flex items-start gap-2.5">
-        <span class="text-sm font-bold text-rose-500 mt-[-1px]">⚠️</span>
+      <div class="p-3.5 rounded-2xl bg-rose-100/80 border border-rose-300 text-rose-800 text-xs leading-relaxed flex items-start gap-2.5 shadow-sm">
+        <span class="text-sm font-bold text-rose-600 mt-[-1px]">⚠️</span>
         <p>
           <b>Mỗi tài khoản iCloud chỉ sử dụng duy nhất 1 code.</b> KHÔNG bấm nhiều lần khiến hệ thống ghi nhận đã sử dụng mã, gây lãng phí mã mà không được sử dụng.
         </p>
       </div>
 
-      <div class="pt-2 border-t border-gray-100 space-y-2">
+      <div class="pt-2 border-t border-gray-300/70 space-y-2">
         <div class="flex items-center gap-1.5 text-xs font-bold text-gray-900 uppercase">
           <span>💡</span>
           <span>CÁCH DÙNG:</span>
         </div>
-        <ul class="text-xs text-gray-700 space-y-2 leading-relaxed pl-1">
+        <ul class="text-xs text-gray-800 space-y-2 leading-relaxed pl-1 font-medium">
           <li class="flex items-start gap-2">
-            <span class="text-gray-400">•</span>
+            <span class="text-gray-500">•</span>
             <span>Bấm vào từng bài hát để lấy mã iTunes miễn phí.</span>
           </li>
           <li class="flex items-start gap-2">
-            <span class="text-gray-400">•</span>
+            <span class="text-gray-500">•</span>
             <span>Vào app <b>iTunes Store</b>, kéo xuống cuối trang, bấm <b>"Quy đổi"</b> - <b>"Nhập mã thủ công"</b> - Dán mã và bấm <b>Quy đổi</b> là hoàn thành.</span>
           </li>
         </ul>
@@ -117,67 +173,68 @@
     <!-- KHỐI 2: CÁC BÀI HÁT -->
     <div class="space-y-3">
       
+      <!-- Tiêu đề 2: Chữ đen phát sáng viền trắng -->
       <div class="flex items-center justify-between px-2">
         <div class="flex items-center gap-2.5">
-          <span class="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center font-bold text-xs shadow-sm">
+          <span class="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center font-bold text-xs shadow-md">
             2
           </span>
-          <h2 class="text-base font-extrabold tracking-wide uppercase glow-title">
+          <h2 class="text-base font-black tracking-wide uppercase glow-title">
             CÁC BÀI HÁT
           </h2>
         </div>
-        <span class="text-[11px] text-gray-500 font-medium">Bấm bài hát để mở</span>
+        <span class="text-[11px] text-gray-700 font-semibold">Bấm bài hát để mở</span>
       </div>
 
       <!-- Thẻ bài hát DDCDCLE -->
       <div 
         onclick="openModal()" 
-        class="shimmer-card rounded-2xl p-3.5 border border-white/90 shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer flex items-center justify-between gap-3 active:scale-[0.99]"
+        class="silver-card rounded-2xl p-3.5 hover:shadow-xl transition-all duration-200 cursor-pointer flex items-center justify-between gap-3 active:scale-[0.99]"
       >
         <div class="flex items-center gap-3">
-          <div class="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center font-extrabold text-sm tracking-wider shadow-sm flex-shrink-0">
+          <div class="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center font-black text-sm tracking-wider shadow-md flex-shrink-0">
             DD
           </div>
           <div>
             <div class="flex items-center gap-2">
               <h3 class="text-sm font-bold text-gray-900 tracking-tight">DDCDCLE</h3>
-              <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 text-emerald-700 border border-emerald-200">
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">
                 Phát mã free
               </span>
             </div>
-            <p class="text-[11px] text-gray-500 mt-0.5">Nghệ sĩ: KIEN • iTunes Store</p>
+            <p class="text-[11px] text-gray-600 mt-0.5 font-medium">Nghệ sĩ: KIEN • iTunes Store</p>
           </div>
         </div>
 
-        <button class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-gray-300 bg-white hover:bg-gray-50 text-xs font-bold text-gray-800 shadow-sm flex-shrink-0">
+        <button class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-gray-300 bg-white hover:bg-gray-50 text-xs font-bold text-gray-900 shadow-sm flex-shrink-0">
           <span>Lấy Code</span>
-          <span class="text-gray-400 text-sm font-normal">&rsaquo;</span>
+          <span class="text-gray-500 text-sm font-bold">&rsaquo;</span>
         </button>
       </div>
 
     </div>
 
     <!-- KHỐI 3: DANH SÁCH NGƯỜI ĐÃ NHẬN CODE CỦA CHIẾN DỊCH -->
-    <div class="shimmer-card rounded-3xl p-5 border border-white/80 shadow-lg shadow-slate-300/40 space-y-3">
-      <div class="flex items-center justify-between border-b border-gray-100 pb-2.5">
+    <div class="silver-card rounded-3xl p-5 space-y-3">
+      <div class="flex items-center justify-between border-b border-gray-300/70 pb-2.5">
         <div class="flex items-center gap-2">
           <img 
-            src="hatde.png.PNG" 
+            src="hatde.png" 
             alt="acorn" 
             class="w-5 h-5 object-contain"
-            onerror="this.onerror=null; this.src='hatde.png';"
+            onerror="this.onerror=null; this.src='hatde.png.PNG';"
           />
           <h3 class="text-xs font-bold uppercase tracking-wider text-gray-900">
             Fandom Đồng Hành Cùng KIEN
           </h3>
         </div>
-        <span id="receiverCount" class="text-[11px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+        <span id="receiverCount" class="text-[11px] font-bold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full border border-emerald-300">
           Đang tải...
         </span>
       </div>
 
-      <div id="receiverList" class="max-h-56 overflow-y-auto space-y-2 pr-1 text-xs text-gray-700">
-        <div class="text-center py-4 text-gray-400 italic text-[11px]">
+      <div id="receiverList" class="max-h-56 overflow-y-auto space-y-2 pr-1 text-xs text-gray-800">
+        <div class="text-center py-4 text-gray-500 italic text-[11px] font-medium">
           Đang cập nhật danh sách...
         </div>
       </div>
@@ -187,30 +244,30 @@
 
   <!-- ================= POPUP MODAL NHẬN MÃ CHO DDCDCLE ================= -->
   <div id="codeModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-white rounded-3xl max-w-sm w-full p-5 border border-gray-200 shadow-2xl space-y-4 relative animate-in fade-in zoom-in duration-150">
+    <div class="bg-slate-100 rounded-3xl max-w-sm w-full p-5 border border-white shadow-2xl space-y-4 relative animate-in fade-in zoom-in duration-150">
       
       <!-- Nút đóng (X) -->
-      <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-lg w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-100 transition">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-lg w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-200 transition">
         ✕
       </button>
 
       <!-- Tiêu đề Popup -->
       <div class="text-center pr-6">
-        <div class="flex items-center justify-center gap-1.5 text-base font-bold text-gray-900">
+        <div class="flex items-center justify-center gap-1.5 text-base font-black text-gray-900">
           <span>🎁</span>
           <span>Dự án: DDCDCLE</span>
         </div>
-        <p class="text-[11px] text-gray-500 mt-0.5">Nhận mã iTunes quy đổi bài hát</p>
+        <p class="text-[11px] text-gray-600 mt-0.5 font-medium">Nhận mã iTunes quy đổi bài hát</p>
       </div>
 
       <!-- Ô nhập tên -->
       <div class="space-y-1 text-left">
-        <label for="userName" class="text-xs font-semibold text-gray-700">Người nhận mã / Tên Fandom</label>
+        <label for="userName" class="text-xs font-bold text-gray-700">Người nhận mã / Tên Fandom</label>
         <input
           type="text"
           id="userName"
           placeholder="Nhập tên bạn hoặc tên Fandom"
-          class="w-full bg-gray-50 border border-gray-300 rounded-xl px-3.5 py-2.5 text-xs text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black transition"
+          class="w-full bg-white border border-gray-300 rounded-xl px-3.5 py-2.5 text-xs text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black transition shadow-sm"
         />
       </div>
 
@@ -218,36 +275,36 @@
       <button
         id="btnClaim"
         onclick="xacNhanLayMa()"
-        class="w-full bg-black hover:bg-gray-800 text-white font-semibold py-3 rounded-xl transition duration-150 text-xs shadow-md disabled:bg-gray-400"
+        class="w-full bg-black hover:bg-gray-800 text-white font-bold py-3 rounded-xl transition duration-150 text-xs shadow-md disabled:bg-gray-400"
       >
         <span id="btnText">Lấy mã iTunes</span>
       </button>
 
-      <p id="errorMsg" class="text-red-500 text-[11px] text-center hidden font-medium"></p>
+      <p id="errorMsg" class="text-red-500 text-[11px] text-center hidden font-bold"></p>
 
       <!-- KHỐI THÔNG BÁO CẢM ƠN (KÈM ICON HẠT DẺ) -->
-      <div id="thankYouBox" class="hidden p-3.5 rounded-2xl bg-amber-50/80 border border-amber-200/80 flex items-start gap-3">
+      <div id="thankYouBox" class="hidden p-3.5 rounded-2xl bg-amber-100/90 border border-amber-300 flex items-start gap-3 shadow-sm">
         <img 
-          src="hatde.png.PNG" 
+          src="hatde.png" 
           alt="Acorn" 
           class="w-6 h-6 object-contain flex-shrink-0 mt-0.5"
-          onerror="this.onerror=null; this.src='hatde.png';"
+          onerror="this.onerror=null; this.src='hatde.png.PNG';"
         />
         <div class="text-xs text-amber-950 leading-relaxed text-left">
           <p class="font-bold text-amber-900" id="thankYouName">Cảm ơn bạn đã lấy mã!</p>
-          <p class="text-[11px] text-amber-800 mt-0.5">Hãy cùng tận hưởng DDCDCLE nhé! 🌰✨</p>
+          <p class="text-[11px] text-amber-800 mt-0.5 font-medium">Hãy cùng tận hưởng DDCDCLE nhé! 🌰✨</p>
         </div>
       </div>
 
       <!-- KHUNG HIỂN THỊ CODE CỦA BẠN -->
-      <div class="bg-gray-100 rounded-2xl p-4 border border-gray-200 space-y-2.5">
+      <div class="bg-gray-200/90 rounded-2xl p-4 border border-gray-300 space-y-2.5">
         <div class="flex items-center justify-between">
-          <span class="text-[11px] font-bold tracking-wider text-gray-600">CODE CỦA BẠN</span>
-          <span id="claimCountBadge" class="text-[10px] text-gray-500">Chưa lấy mã</span>
+          <span class="text-[11px] font-bold tracking-wider text-gray-700">CODE CỦA BẠN</span>
+          <span id="claimCountBadge" class="text-[10px] text-gray-600 font-semibold">Chưa lấy mã</span>
         </div>
 
-        <div class="bg-white border border-gray-300 rounded-xl py-3 px-3 text-center">
-          <div id="codeDisplay" class="font-mono font-bold text-sm tracking-wider text-gray-900 select-all break-all">
+        <div class="bg-white border border-gray-300 rounded-xl py-3 px-3 text-center shadow-inner">
+          <div id="codeDisplay" class="font-mono font-black text-sm tracking-wider text-gray-900 select-all break-all">
             ------ ------ ------
           </div>
         </div>
@@ -256,10 +313,10 @@
         <button
           id="btnCopy"
           onclick="copyCode()"
-          class="w-full bg-white hover:bg-gray-50 border border-gray-300 font-semibold py-2.5 rounded-xl transition duration-150 flex items-center justify-center gap-1.5 text-xs text-gray-800 shadow-sm"
+          class="w-full bg-white hover:bg-gray-50 border border-gray-300 font-bold py-2.5 rounded-xl transition duration-150 flex items-center justify-center gap-1.5 text-xs text-gray-900 shadow-sm"
         >
           <svg class="w-3.5 h-3.5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
           </svg>
           <span id="copyText">Copy Code</span>
         </button>
@@ -272,19 +329,19 @@
   <div id="confirmModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[60] flex items-center justify-center p-4 hidden">
     <div class="bg-white rounded-2xl max-w-xs w-full p-5 border border-gray-300 shadow-2xl text-center space-y-3.5 animate-in fade-in zoom-in duration-150">
       <div class="text-2xl">⚠️</div>
-      <p class="text-xs text-gray-800 leading-relaxed font-medium">
+      <p class="text-xs text-gray-800 leading-relaxed font-semibold">
         Bạn đã lấy mã trước đó, bạn có chắc chắn lấy thêm mã không?
       </p>
       <div class="grid grid-cols-2 gap-2 pt-1">
         <button 
           onclick="dongYLayThem()" 
-          class="bg-black hover:bg-gray-800 text-white text-xs font-semibold py-2.5 rounded-xl transition"
+          class="bg-black hover:bg-gray-800 text-white text-xs font-bold py-2.5 rounded-xl transition"
         >
           Có
         </button>
         <button 
           onclick="dongXacNhan()" 
-          class="bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold py-2.5 rounded-xl transition border border-gray-300"
+          class="bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold py-2.5 rounded-xl transition border border-gray-300"
         >
           Không
         </button>
@@ -293,7 +350,6 @@
   </div>
 
   <script>
-    // Link Google Apps Script triển khai của dự án DDCDCLE
     const API_URL = "https://script.google.com/macros/s/AKfycbx1szEqP_X_cZKOTQLsUkvKzCGJgS-T747vRB9Kh48Yl7MV8LAhNsea_r4oqugl8D4M5A/exec";
 
     const codeModal = document.getElementById("codeModal");
@@ -412,19 +468,19 @@
 
           data.receivers.slice().reverse().forEach((person) => {
             const item = document.createElement("div");
-            item.className = "flex items-center gap-2.5 p-2.5 rounded-xl bg-white border border-gray-100 shadow-sm";
+            item.className = "flex items-center gap-2.5 p-2.5 rounded-xl bg-white/90 border border-gray-200 shadow-sm";
             item.innerHTML = `
-              <img src="hatde.png.PNG" class="w-4 h-4 object-contain flex-shrink-0" onerror="this.onerror=null; this.src='hatde.png';" />
+              <img src="hatde.png" class="w-4 h-4 object-contain flex-shrink-0" onerror="this.onerror=null; this.src='hatde.png.PNG';" />
               <div class="leading-tight">
                 <span class="font-bold text-gray-900">Cảm ơn "${escapeHtml(person)}" đã lấy mã!</span>
-                <span class="text-gray-500 text-[11px] block mt-0.5">Hãy cùng tận hưởng DDCDCLE nhé!</span>
+                <span class="text-gray-600 text-[11px] block mt-0.5">Hãy cùng tận hưởng DDCDCLE nhé!</span>
               </div>
             `;
             receiverList.appendChild(item);
           });
         } else {
           receiverCount.innerText = "0 người đã nhận";
-          receiverList.innerHTML = '<div class="text-center py-4 text-gray-400 italic text-[11px]">Chưa có ai nhận mã, hãy là người đầu tiên!</div>';
+          receiverList.innerHTML = '<div class="text-center py-4 text-gray-500 italic text-[11px]">Chưa có ai nhận mã, hãy là người đầu tiên!</div>';
         }
       } catch (e) {
         receiverCount.innerText = "Chưa kết nối";
