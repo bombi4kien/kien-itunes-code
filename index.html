@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
   <style>
-    /* Nền màu xám bạc kim loại (Metallic Silver) đậm chất */
+    /* Nền màu xám bạc kim loại (Metallic Silver) */
     body {
       background-color: #9fa8b3;
       background-image: 
@@ -170,7 +170,7 @@
 
     </div>
 
-    <!-- KHỐI 2: CÁC BÀI HÁT -->
+    <!-- KHỐI 2: CÁC BÀI HÁT & ĐỒNG HỒ ĐẾM NGƯỢC -->
     <div class="space-y-3">
       
       <!-- Tiêu đề 2: Chữ đen phát sáng viền trắng -->
@@ -186,6 +186,39 @@
         <span class="text-[11px] text-gray-700 font-semibold">Bấm bài hát để mở</span>
       </div>
 
+      <!-- KHỐI THÔNG BÁO VÀ ĐỒNG HỒ ĐẾM NGƯỢC HẸN GIỜ 21H30 NGÀY 15/10 -->
+      <div id="countdownSection" class="silver-card rounded-2xl p-4 text-center space-y-2">
+        <div class="flex items-center justify-center gap-1.5 text-xs font-bold text-gray-900">
+          <span>⏳</span>
+          <span>Hệ thống sẽ mở phát Code vào 21h30 ngày 15/10</span>
+        </div>
+        
+        <!-- Đồng hồ Ngày - Giờ - Phút - Giây -->
+        <div id="timerBoxes" class="grid grid-cols-4 gap-2 font-mono text-center pt-1">
+          <div class="bg-white/90 border border-gray-300 rounded-xl p-2 shadow-sm">
+            <span id="days" class="text-base font-black text-gray-900 block">00</span>
+            <span class="text-[9px] font-bold text-gray-500 block">NGÀY</span>
+          </div>
+          <div class="bg-white/90 border border-gray-300 rounded-xl p-2 shadow-sm">
+            <span id="hours" class="text-base font-black text-gray-900 block">00</span>
+            <span class="text-[9px] font-bold text-gray-500 block">GIỜ</span>
+          </div>
+          <div class="bg-white/90 border border-gray-300 rounded-xl p-2 shadow-sm">
+            <span id="minutes" class="text-base font-black text-gray-900 block">00</span>
+            <span class="text-[9px] font-bold text-gray-500 block">PHÚT</span>
+          </div>
+          <div class="bg-white/90 border border-gray-300 rounded-xl p-2 shadow-sm">
+            <span id="seconds" class="text-base font-black text-rose-600 block">00</span>
+            <span class="text-[9px] font-bold text-gray-500 block">GIÂY</span>
+          </div>
+        </div>
+
+        <!-- Thông báo khi hệ thống đã mở -->
+        <div id="openedAlert" class="hidden p-2 rounded-xl bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs font-bold">
+          🎉 Hệ thống đã mở phát code! Bấm vào bài hát để nhận ngay.
+        </div>
+      </div>
+
       <!-- Thẻ bài hát DDCDCLE -->
       <div 
         onclick="openModal()" 
@@ -198,8 +231,8 @@
           <div>
             <div class="flex items-center gap-2">
               <h3 class="text-sm font-bold text-gray-900 tracking-tight">DDCDCLE</h3>
-              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">
-                Phát mã free
+              <span id="songStatusBadge" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-300">
+                Mở lúc 21h30
               </span>
             </div>
             <p class="text-[11px] text-gray-600 mt-0.5 font-medium">Nghệ sĩ: KIEN • iTunes Store</p>
@@ -207,7 +240,7 @@
         </div>
 
         <button class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-gray-300 bg-white hover:bg-gray-50 text-xs font-bold text-gray-900 shadow-sm flex-shrink-0">
-          <span>Lấy Code</span>
+          <span id="songBtnText">Xem mã</span>
           <span class="text-gray-500 text-sm font-bold">&rsaquo;</span>
         </button>
       </div>
@@ -260,6 +293,11 @@
         <p class="text-[11px] text-gray-600 mt-0.5 font-medium">Nhận mã iTunes quy đổi bài hát</p>
       </div>
 
+      <!-- Thông báo đếm ngược trong popup nếu chưa tới giờ -->
+      <div id="modalLockNotice" class="p-2.5 rounded-xl bg-amber-100 border border-amber-300 text-amber-900 text-xs font-semibold text-center hidden">
+        ⏰ Hệ thống mở phát mã vào 21h30 ngày 15/10!
+      </div>
+
       <!-- Ô nhập tên -->
       <div class="space-y-1 text-left">
         <label for="userName" class="text-xs font-bold text-gray-700">Người nhận mã / Tên Fandom</label>
@@ -275,7 +313,7 @@
       <button
         id="btnClaim"
         onclick="xacNhanLayMa()"
-        class="w-full bg-black hover:bg-gray-800 text-white font-bold py-3 rounded-xl transition duration-150 text-xs shadow-md disabled:bg-gray-400"
+        class="w-full bg-black hover:bg-gray-800 text-white font-bold py-3 rounded-xl transition duration-150 text-xs shadow-md disabled:bg-gray-400 disabled:cursor-not-allowed"
       >
         <span id="btnText">Lấy mã iTunes</span>
       </button>
@@ -352,6 +390,12 @@
   <script>
     const API_URL = "https://script.google.com/macros/s/AKfycbx1szEqP_X_cZKOTQLsUkvKzCGJgS-T747vRB9Kh48Yl7MV8LAhNsea_r4oqugl8D4M5A/exec";
 
+    // ==========================================
+    // CÀI ĐẶT THỜI GIAN MỞ: 21h30 ngày 15/10/2026
+    // Tháng 10 ghi số 9
+    // ==========================================
+    const OPEN_TIME = new Date(2026, 9, 15, 21, 30, 0).getTime();
+
     const codeModal = document.getElementById("codeModal");
     const confirmModal = document.getElementById("confirmModal");
     const userNameInput = document.getElementById("userName");
@@ -366,6 +410,63 @@
     const btnText = document.getElementById("btnText");
     const errorMsg = document.getElementById("errorMsg");
     const copyText = document.getElementById("copyText");
+
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+    const timerBoxes = document.getElementById("timerBoxes");
+    const openedAlert = document.getElementById("openedAlert");
+    const modalLockNotice = document.getElementById("modalLockNotice");
+    const songStatusBadge = document.getElementById("songStatusBadge");
+    const songBtnText = document.getElementById("songBtnText");
+
+    let isSystemOpened = false;
+
+    // Hàm cập nhật đồng hồ đếm ngược và trạng thái mở hệ thống
+    function kiemTraVaDemNguoc() {
+      const now = Date.now();
+      const diff = OPEN_TIME - now;
+
+      if (diff > 0) {
+        isSystemOpened = false;
+        btnClaim.disabled = true;
+        btnText.innerText = "Chưa đến giờ mở";
+        modalLockNotice.classList.remove("hidden");
+        timerBoxes.classList.remove("hidden");
+        openedAlert.classList.add("hidden");
+
+        songStatusBadge.innerText = "Mở lúc 21h30";
+        songStatusBadge.className = "px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-300";
+        songBtnText.innerText = "Chờ mở";
+
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const m = Math.floor((diff / (1000 * 60)) % 60);
+        const s = Math.floor((diff / 1000) % 60);
+
+        daysEl.innerText = String(d).padStart(2, '0');
+        hoursEl.innerText = String(h).padStart(2, '0');
+        minutesEl.innerText = String(m).padStart(2, '0');
+        secondsEl.innerText = String(s).padStart(2, '0');
+      } else {
+        isSystemOpened = true;
+        btnClaim.disabled = false;
+        if (btnText.innerText === "Chưa đến giờ mở") {
+          btnText.innerText = "Lấy mã iTunes";
+        }
+        modalLockNotice.classList.add("hidden");
+        timerBoxes.classList.add("hidden");
+        openedAlert.classList.remove("hidden");
+
+        songStatusBadge.innerText = "Đang phát mã";
+        songStatusBadge.className = "px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300";
+        songBtnText.innerText = "Lấy Code";
+      }
+    }
+
+    setInterval(kiemTraVaDemNguoc, 1000);
+    kiemTraVaDemNguoc();
 
     let soLanDaLay = parseInt(localStorage.getItem("so_lan_lay_ddcdcle") || "0", 10);
     const maGanNhat = localStorage.getItem("ma_ddcdcle_gan_nhat");
@@ -393,6 +494,12 @@
     }
 
     function xacNhanLayMa() {
+      if (!isSystemOpened) {
+        errorMsg.innerText = "Hệ thống sẽ chính thức mở phát Code vào 21h30 ngày 15/10!";
+        errorMsg.classList.remove("hidden");
+        return;
+      }
+
       const name = userNameInput.value.trim();
       if (!name) {
         errorMsg.innerText = "Vui lòng nhập Tên bạn hoặc Tên Fandom!";
@@ -453,7 +560,9 @@
         errorMsg.classList.remove("hidden");
         btnText.innerText = "Thử lại";
       } finally {
-        btnClaim.disabled = false;
+        if (isSystemOpened) {
+          btnClaim.disabled = false;
+        }
       }
     }
 
