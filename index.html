@@ -170,13 +170,13 @@
 
         <!-- ẢNH HƯỚNG DẪN: hdan.jpg -->
         <div class="rounded-2xl border border-gray-300/90 shadow-md mt-2 bg-white p-1">
-  <img 
-    src="hdan.jpg" 
-    alt="Hướng dẫn đổi mã iTunes" 
-    class="w-full h-auto object-contain block rounded-xl"
-    onerror="this.onerror=null; this.src='hdan.JPG';"
-  />
-</div>
+          <img 
+            src="hdan.jpg" 
+            alt="Hướng dẫn đổi mã iTunes" 
+            class="w-full h-auto object-contain block rounded-xl"
+            onerror="this.onerror=null; this.src='hdan.JPG';"
+          />
+        </div>
       </div>
 
     </div>
@@ -295,7 +295,7 @@
         ✕
       </button>
 
-      <!-- Tiêu đề Popup -->
+      <!-- Tiêu đề Popup (Thay icon hạt dẻ) -->
       <div class="text-center pr-6">
         <div class="flex items-center justify-center gap-2 text-base font-black text-gray-900">
           <img 
@@ -417,7 +417,6 @@
     const thankYouBox = document.getElementById("thankYouBox");
     const thankYouName = document.getElementById("thankYouName");
     const receiverList = document.getElementById("receiverList");
-    const receiverCount = document.getElementById("receiverCount");
 
     const btnClaim = document.getElementById("btnClaim");
     const btnText = document.getElementById("btnText");
@@ -583,8 +582,7 @@
         const res = await fetch(`${API_URL}?action=get_receivers`);
         const data = await res.json();
         
-        if (data.receivers && data.receivers.length > 0) {
-          receiverCount.innerText = `${data.receivers.length} người đã nhận`;
+        if (data && data.receivers && data.receivers.length > 0) {
           receiverList.innerHTML = "";
 
           data.receivers.slice().reverse().forEach((person) => {
@@ -600,11 +598,10 @@
             receiverList.appendChild(item);
           });
         } else {
-          receiverCount.innerText = "0 người đã nhận";
           receiverList.innerHTML = '<div class="text-center py-4 text-gray-500 italic text-[11px]">Chưa có ai nhận mã, hãy là người đầu tiên!</div>';
         }
       } catch (e) {
-        receiverCount.innerText = "Chưa kết nối";
+        receiverList.innerHTML = '<div class="text-center py-4 text-gray-500 italic text-[11px]">Chưa có ai nhận mã, hãy là người đầu tiên!</div>';
       }
     }
 
