@@ -147,11 +147,12 @@
       <div class="p-3.5 rounded-2xl bg-rose-100/80 border border-rose-300 text-rose-800 text-xs leading-relaxed flex items-start gap-2.5 shadow-sm">
         <span class="text-sm font-bold text-rose-600 mt-[-1px]">⚠️</span>
         <p>
-          <b>Mỗi tài khoản ID Apple chỉ sử dụng duy nhất 1 code.</b> KHÔNG bấm nhiều lần khiến hệ thống ghi nhận đã sử dụng mã, gây lãng phí mã mà không được sử dụng.
+          <b>Mỗi tài khoản iCloud chỉ sử dụng duy nhất 1 code.</b> KHÔNG bấm nhiều lần khiến hệ thống ghi nhận đã sử dụng mã, gây lãng phí mã mà không được sử dụng.
         </p>
       </div>
 
-      <div class="pt-2 border-t border-gray-300/70 space-y-2">
+      <!-- MỤC CÁCH DÙNG & HÌNH ẢNH MINH HỌA -->
+      <div class="pt-2 border-t border-gray-300/70 space-y-3">
         <div class="flex items-center gap-1.5 text-xs font-bold text-gray-900 uppercase">
           <span>💡</span>
           <span>CÁCH DÙNG:</span>
@@ -166,6 +167,16 @@
             <span>Vào app <b>iTunes Store</b>, kéo xuống cuối trang, bấm <b>"Quy đổi"</b> - <b>"Nhập mã thủ công"</b> - Dán mã và bấm <b>Quy đổi</b> là hoàn thành.</span>
           </li>
         </ul>
+
+        <!-- ẢNH HƯỚNG DẪN: hdan.jpg -->
+        <div class="overflow-hidden rounded-2xl border border-gray-300/90 shadow-md mt-2 bg-gray-100">
+          <img 
+            src="hdan.jpg" 
+            alt="Hướng dẫn đổi mã iTunes" 
+            class="w-full h-auto object-cover block"
+            onerror="this.onerror=null; this.src='hdan.JPG';"
+          />
+        </div>
       </div>
 
     </div>
@@ -219,13 +230,12 @@
         </div>
       </div>
 
-      <!-- Thẻ bài hát DDCDCLE (ĐÃ THAY BẰNG ẢNH NHỎ ddcdcle.jpg) -->
+      <!-- Thẻ bài hát DDCDCLE -->
       <div 
         onclick="openModal()" 
         class="silver-card rounded-2xl p-3.5 hover:shadow-xl transition-all duration-200 cursor-pointer flex items-center justify-between gap-3 active:scale-[0.99]"
       >
         <div class="flex items-center gap-3">
-          <!-- Ảnh thumbnail nhỏ ddcdcle.jpg thay cho chữ DD -->
           <div class="w-12 h-12 rounded-xl overflow-hidden border border-gray-300/80 shadow-md flex-shrink-0 bg-gray-200">
             <img 
               src="ddcdcle.jpg" 
